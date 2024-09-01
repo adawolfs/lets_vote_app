@@ -28,4 +28,9 @@ class FirebaseVoteRepository implements VoteRepository {
         .add(vote)
         .then((doc) => doc.get().then((value) => Right(value.data()!)));
   }
+
+  @override
+  Stream<int> count() {
+    return _voteRef.get().asStream().map((event) => event.docs.length);
+  }
 }

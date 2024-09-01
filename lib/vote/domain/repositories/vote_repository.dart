@@ -5,4 +5,5 @@ import 'package:lets_vote_app/vote/infrastructure/models/vote.dart';
 
 abstract class VoteRepository {
   Future<Either<VoteFailure, Vote>> vote(VoteModel vote);
+  Stream<int> count();
 }

@@ -13,5 +13,11 @@ class VoteBloc extends Bloc<VoteEvent, VoteState> {
       vote.fold((failure) => emit(VoteFailed(failure: failure)),
           (vote) => emit(VoteSuccess(vote: vote)));
     });
+    on<VoteCount>((event, emit) async {
+      await getIt.get<VoteService>().count().forEach((count) {
+        emit(VoteCounted(count: count));
+      });
+    });
+    // add(VoteCount());
   }
 }

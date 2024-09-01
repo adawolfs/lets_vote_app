@@ -8,3 +8,5 @@ class VoteSummit extends VoteEvent {
   final Vote? vote;
   const VoteSummit(this.vote);
 }
+
+class VoteCount extends VoteEvent {}

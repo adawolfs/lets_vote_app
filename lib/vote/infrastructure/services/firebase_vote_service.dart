@@ -13,4 +13,9 @@ class FirebaseVoteService implements VoteService {
   Future<Either<VoteFailure, Vote>> vote(String value) async {
     return await getIt.get<VoteRepository>().vote(VoteModel(value: value));
   }
+
+  @override
+  Stream<int> count() {
+    return getIt.get<VoteRepository>().count();
+  }
 }
